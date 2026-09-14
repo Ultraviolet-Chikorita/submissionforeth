@@ -16,9 +16,9 @@ This repository contains a hackathon/submission prototype for analysing **Discor
 - topic extraction and weekly-report generation;
 - JSON backup/restore for in-memory state.
 
-## Reviewer guide
+## Key components
 
-The project is currently concentrated in [`bot.py`](bot.py). Useful sections to inspect are:
+The project is currently concentrated in [`bot.py`](bot.py). Its main responsibilities are:
 
 - Discord ingestion/event handlers;
 - conversation/reply-chain construction;
@@ -66,10 +66,6 @@ The original code expects bot/model credentials from `.env`. Runtime backups are
 - **Architecture:** state, Discord I/O, analytics and model calls live in one large module and should be separated before serious reuse.
 - **Persistence:** JSON snapshots are convenient for a demo but not robust concurrent storage.
 
-## What I would improve now
+## Future work
 
-I would convert the system from person-ranking toward **descriptive, opt-in team analytics**: show conversation/topic patterns and uncertainty rather than scoring people. Technically, I would split Discord ingestion, normalized event storage, analytics and report generation; schema-validate all model outputs; retain model errors as explicit unknowns; add synthetic Discord fixtures; and test scoring/report invariants without requiring the Discord or model APIs.
-
-## Portfolio note
-
-This is retained as a historical agent/bot prototype. More recent repositories on this account are better examples of evaluation methodology, testing and production-style code organization.
+A better direction would be to shift the system from person-ranking toward **descriptive, opt-in team analytics**: show conversation/topic patterns and uncertainty rather than scoring people. Technically, the next steps would be to split Discord ingestion, normalized event storage, analytics and report generation; schema-validate all model outputs; retain model errors as explicit unknowns; add synthetic Discord fixtures; and test scoring/report invariants without requiring the Discord or model APIs.
